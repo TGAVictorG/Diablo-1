@@ -2,16 +2,16 @@
 class Stats
 {
 public:
-	Stats(int anStrValue, int aDexValue, int aConValue);
+	Stats(int aStrValue, int aDexValue, int aConValue);
 
-	const int GetDex();
-	const int GetStr();
-	const int GetCon();
-	const int GetAttack();
-	const int GetMaxHealth();
-	const int GetCurrentHealth();
-	const int GetCarryCap();
-	const int GetDefense();
+	int GetDex() const;
+	int GetStr() const;
+	int GetCon() const;
+	int GetAttack() const;
+	int GetMaxHealth() const;
+	int GetCurrentHealth() const;
+	int GetCarryCap() const;
+	int GetDefense() const;
 
 	void DoDamage(int aDamageValue);
 private:

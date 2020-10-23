@@ -39,5 +39,5 @@ const int Lock::GetDexRequirement()
 
 const bool Lock::GetIsLocked()
 {
-	return false;
+	return myLockedState;
 }

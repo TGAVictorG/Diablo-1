@@ -1,61 +1,61 @@
 #include "Stats.h"
 
-Stats::Stats(int anStrValue, int aDexValue, int aConValue) : myStr(anStrValue), myDex(aDexValue), myCon(aConValue)
+Stats::Stats(int aStrValue, int aDexValue, int aConValue) : myStr(aStrValue), myDex(aDexValue), myCon(aConValue)
 {
-    myAttack = myStr * myDex;
-    myMaxHealth = (myCon * 4) + (myStr * 3) + myDex;
-    myCarryCap = (myStr * myCon) / 2;
-    myDefense = myStr + myDex + (myCon / 2);
+	myAttack = myStr * myDex;
+	myMaxHealth = (myCon * 4) + (myStr * 3) + myDex;
+	myCarryCap = (myStr * myCon) / 2;
+	myDefense = myStr + myDex + (myCon / 2);
 
-    myCurrentHealth = myMaxHealth;
+	myCurrentHealth = myMaxHealth;
 }
 
-const int Stats::GetDex()
+int Stats::GetDex() const
 {
-    return myDex;
+	return myDex;
 }
 
-const int Stats::GetStr()
+int Stats::GetStr() const
 {
-    return myStr;
+	return myStr;
 }
 
-const int Stats::GetCon()
+int Stats::GetCon() const
 {
-    return myCon;
+	return myCon;
 }
 
-const int Stats::GetAttack()
+int Stats::GetAttack() const
 {
-    return myAttack;
+	return myAttack;
 }
 
-const int Stats::GetMaxHealth()
+int Stats::GetMaxHealth() const
 {
-    return myMaxHealth;
+	return myMaxHealth;
 }
 
-const int Stats::GetCurrentHealth()
+int Stats::GetCurrentHealth() const
 {
-    return myCurrentHealth;
+	return myCurrentHealth;
 }
 
-const int Stats::GetCarryCap()
+int Stats::GetCarryCap() const
 {
-    return myCarryCap;
+	return myCarryCap;
 }
 
-const int Stats::GetDefense()
+int Stats::GetDefense() const
 {
-    return myDefense;
+	return myDefense;
 }
 
 void Stats::DoDamage(int aDamageValue)
 {
-    myCurrentHealth -= aDamageValue;
-    
-    if (myCurrentHealth < 0)
-    {
-        myCurrentHealth = 0;
-    }
+	myCurrentHealth -= aDamageValue;
+
+	if (myCurrentHealth < 0)
+	{
+		myCurrentHealth = 0;
+	}
 }

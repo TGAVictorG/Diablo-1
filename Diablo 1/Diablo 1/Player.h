@@ -9,6 +9,7 @@ public:
 
 	void SetCurrentRoom(Room* aRoom);
 	Room* GetCurrentRoom();
+	Stats& GetStats() const;
 private:
 	Stats* myStats;
 	Room* myCurrentRoom;

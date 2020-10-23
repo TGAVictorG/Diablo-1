@@ -1,7 +1,7 @@
 #include "Room.h"
 #include <iostream>
 
-void Room::AddDoorToRooms(Room *firstRoom, Room *secondRoom, Door* aDoor)
+void Room::AddDoorToRooms(Room *firstRoom, Room *secondRoom, Door *aDoor)
 {
 	firstRoom->myDoors.push_back(aDoor);
 	secondRoom->myDoors.push_back(aDoor);
@@ -15,4 +15,9 @@ Room::Room(std::string aRoomDescription) : myRoomDescription(aRoomDescription)
 const std::string Room::GetRoomDescription()
 {
 	return myRoomDescription;
+}
+
+const std::vector<Door*>& Room::GetRoomDoors()
+{
+	return myDoors;
 }

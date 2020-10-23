@@ -14,3 +14,8 @@ Room* Player::GetCurrentRoom()
 {
 	return myCurrentRoom;
 }
+
+Stats& Player::GetStats() const
+{
+	return *myStats;
+}

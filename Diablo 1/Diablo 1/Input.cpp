@@ -4,7 +4,7 @@ namespace Utilities
 {
 	namespace Input
 	{
-		int AskForInteger()
+		int AskForInteger(int aMinValue, int aMaxValue)
 		{
 			int entry = 0;
 			bool askForNumber = true;
@@ -14,7 +14,7 @@ namespace Utilities
 				std::cout << ">>";
 				std::cin >> entry;
 
-				if (std::cin.fail())
+				if (std::cin.fail() || entry < aMinValue || entry > aMaxValue)
 				{
 					std::cin.clear();
 					std::cin.ignore(100, '\n');

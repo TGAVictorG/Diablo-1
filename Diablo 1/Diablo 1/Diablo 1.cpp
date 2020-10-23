@@ -6,6 +6,14 @@
 #include "Door.h"
 #include "Input.h"
 
+void PrintMenuChoices();
+Room* OpenDoorMenu(Room* aRoom, const Stats& aStats);
+
+enum class RoomAction
+{
+	OpenDoor = 0,
+};
+
 int main()
 {
 	Stats playerStats(5, 5, 5);
@@ -27,9 +35,39 @@ int main()
 		std::cout << std::endl;
 
 		std::cout << "What do you want to do?" << std::endl;
+		PrintMenuChoices();
+		std::cout << '\n' << std::endl;
 
-		int answer = Utilities::Input::AskForInteger();
+		RoomAction answer = static_cast<RoomAction>(Utilities::Input::AskForInteger(0, 0));
+
+		switch (answer)
+		{
+		case RoomAction::OpenDoor:
+			currentRoom = OpenDoorMenu(currentRoom, player.GetStats());
+			break;
+		}
 
 		system("pause");
 	}
+}
+
+void PrintMenuChoices()
+{
+	std::cout << "0 - Open a door";
+}
+
+Room* OpenDoorMenu(Room* aRoom, const Stats& aStats)
+{
+	std::vector<Door*> doors = aRoom->GetRoomDoors();
+
+	std::cout << "Which door do you want to open?" << std::endl;
+
+	for (size_t i = 0; i < doors.size(); i++)
+	{
+		std::cout << i << " - " << doors[i]->ToString() << std::endl;
+	}
+
+	int answer = Utilities::Input::AskForInteger(0, doors.size());
+
+	return doors[answer]->TryOpenDoor(aRoom, aStats);
 }

@@ -3,6 +3,6 @@ namespace Utilities
 {
 	namespace Input 
 	{
-		int AskForInteger();
+		int AskForInteger(int aMinValue, int aMaxValue);
 	}
 }
